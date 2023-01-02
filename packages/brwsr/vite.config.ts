@@ -14,13 +14,13 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  optimizeDeps: {
-    force: true,
-    include: ['oi4ch0zjda'],
-  },
-  build: {
-    commonjsOptions: {
-      include: [/oi4ch0zjda/, /node_modules/],
-    },
-  },
+  // optimizeDeps: {
+  //   force: true,
+  //   include: ['oi4ch0zjda'],
+  // },
+  // build: {
+  //   commonjsOptions: {
+  //     include: [/oi4ch0zjda/, /node_modules/],
+  //   },
+  // },
 })
