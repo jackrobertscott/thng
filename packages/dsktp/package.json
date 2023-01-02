@@ -2,15 +2,15 @@
   "name": "dsktp",
   "version": "0.0.0",
   "license": "UNLICENSED",
-  "type": "module",
   "scripts": {
-    "dev": "electron src/index.ts",
+    "dev": "concurrently \"tsc -w\" \"electron lib/index.js\"",
     "build": "rm -rf lib && tsc"
   },
   "dependencies": {
     "module-alias": "^2.2.2"
   },
   "devDependencies": {
+    "concurrently": "^7.6.0",
     "electron": "^22.0.0",
     "typescript": "^4.6.3"
   },
