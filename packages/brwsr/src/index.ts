@@ -4,23 +4,17 @@ import 'whatwg-fetch'
 import 'promise-polyfill/src/polyfill'
 import {createRoot} from 'react-dom/client'
 import {createElement as $} from 'react'
-import {CmpApp} from './components/CmpApp'
-import {CmpPrvThm} from './components/CmpPrv/CmpPrvThm'
-import {CmpPrvBrw} from './components/CmpPrv/CmpPrvBrw'
-import {CmpPrvHep} from './components/CmpPrv/CmpPrvHep'
-import {CmpPrvTst} from './components/CmpPrv/CmpPrvTst'
-import {CmpPrvDrg} from './components/CmpPrv/CmpPrvDrg'
+import {CmpApp} from './cmps/CmpApp'
+import {CmpPrvThm} from './cmps/CmpPrv/CmpPrvThm'
+import {CmpPrvHep} from './cmps/CmpPrv/CmpPrvHep'
+import {CmpPrvTst} from './cmps/CmpPrv/CmpPrvTst'
 /**
  *
  */
 const app = $(CmpPrvThm, {
-  ele: $(CmpPrvBrw, {
-    ele: $(CmpPrvHep, {
-      ele: $(CmpPrvTst, {
-        ele: $(CmpPrvDrg, {
-          ele: $(CmpApp),
-        }),
-      }),
+  ele: $(CmpPrvHep, {
+    ele: $(CmpPrvTst, {
+      ele: $(CmpApp),
     }),
   }),
 })

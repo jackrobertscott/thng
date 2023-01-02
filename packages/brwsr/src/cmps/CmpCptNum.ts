@@ -1,0 +1,47 @@
+import {TypeFCProps} from '@/utils/props'
+import {createElement as $, FC, useState} from 'react'
+import {CmpCptStr} from './CmpCptStr'
+/**
+ *
+ */
+export const CmpCptNum: FC<
+  Omit<TypeFCProps<typeof CmpCptStr>, 'val' | 'valSet'> & {
+    min?: number
+    max?: number
+    val?: number | null
+    valSet?: (value: number | null) => void
+  }
+> = ({min, max, val, valSet, ...props}) => {
+  const [dot, dotSet] = useState(false)
+  const _change = (value: string | null) => {
+    if (value === null) {
+      return null
+    }
+    value = value.trim()
+    if (value.length === 0) {
+      return valSet?.(null)
+    }
+    if (value.charAt(value.length - 1) === '.') {
+      if (!dot) dotSet(true)
+    } else {
+      if (dot) dotSet(false)
+    }
+    const i = parseFloat(value)
+    if (!isNaN(i)) {
+      if (typeof min !== 'number' || i >= min) {
+        if (typeof max !== 'number' || i <= max) {
+          valSet?.(i)
+        }
+      }
+    }
+  }
+  return $(CmpCptStr, {
+    ...props,
+    val: (typeof val === 'number' ? val : '') + (dot ? '.' : ''),
+    keyDwn: (code) => {
+      if (code === 'ArrowUp') _change((val || 0) + 1 + '')
+      if (code === 'ArrowDown') _change((val || 0) - 1 + '')
+    },
+    valSet: _change,
+  })
+}

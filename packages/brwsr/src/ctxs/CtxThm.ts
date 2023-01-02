@@ -1,4 +1,4 @@
-import {THM} from '@/constants/THM'
+import {THM} from '@/consts/THM'
 import {createContext} from 'react'
 /**
  *
