@@ -1,3 +1,4 @@
+window.__REACT_DEVTOOLS_GLOBAL_HOOK__ = {isDisabled: true}
 import './index.css'
 import 'material-icons/iconfont/outlined.css'
 import 'whatwg-fetch'

@@ -3,7 +3,7 @@
     "strict": true,
     "skipLibCheck": true,
     "noImplicitAny": true,
-    // "esModuleInterop": true,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "module": "CommonJS",
     "target": "ESNext",
