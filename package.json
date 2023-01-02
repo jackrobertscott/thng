@@ -1,0 +1,10 @@
+{
+  "name": "root",
+  "private": true,
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Jack Scott",
+    "email": "jack.rob.scott@gmail.com"
+  }
+}
