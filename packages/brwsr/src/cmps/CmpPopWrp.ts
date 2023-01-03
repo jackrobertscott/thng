@@ -1,6 +1,6 @@
 import {FIB} from '@/consts/FIB'
 import {useThm} from '@/hooks/useThm'
-import {addkeys} from '@/utils/addkeys'
+import {addkey} from '@/utils/addkey'
 import {css} from '@emotion/css'
 import {createElement as $, FC, ReactNode} from 'react'
 /**
@@ -27,7 +27,7 @@ export const CmpPopWrp: FC<{
         pos === 'above' ? '-100%' : '100%'
       })`,
     }),
-    children: addkeys(
+    children: addkey(
       [
         /**
          * diamond tooltip pointer

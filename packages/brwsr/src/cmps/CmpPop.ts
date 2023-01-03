@@ -1,4 +1,4 @@
-import {addkeys} from '@/utils/addkeys'
+import {addkey} from '@/utils/addkey'
 import {css} from '@emotion/css'
 import {
   createElement as $,
@@ -27,7 +27,7 @@ export const CmpPop: FC<{
     else boxSet(undefined)
   }, [open])
   return $(Fragment, {
-    children: addkeys([
+    children: addkey([
       $('div', {
         ref,
         children: eleWrp(() => openSet(true)),

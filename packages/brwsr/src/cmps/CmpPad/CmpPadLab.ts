@@ -1,5 +1,5 @@
 import {useThm} from '@/hooks/useThm'
-import {addkeys} from '@/utils/addkeys'
+import {addkey} from '@/utils/addkey'
 import {TypeHSLA} from '@/utils/hsla'
 import {indent} from '@/utils/indent'
 import {css} from '@emotion/css'
@@ -35,7 +35,7 @@ export const CmpPadLab: FC<{
       '&:hover': clk ? {background: thm.bg.maj.hover} : undefined,
       '&:active': clk ? {background: thm.bg.maj.active} : undefined,
     }),
-    children: addkeys([
+    children: addkey([
       icn &&
         $(CmpIcn, {
           icn: icn,

@@ -1,7 +1,7 @@
 import {createElement as $, FC} from 'react'
 import {css} from '@emotion/css'
 import {indent} from '@/utils/indent'
-import {addkeys} from '@/utils/addkeys'
+import {addkey} from '@/utils/addkey'
 import {useThm} from '@/hooks/useThm'
 import {TypeFCProps} from '@/utils/props'
 import {CmpCptrStr} from '../CmpCptrStr'
@@ -37,7 +37,7 @@ export const CmpPadStr: FC<
       '&:focus-within': {color: clr?.normal ?? thm.fc.maj.normal},
       '*::placeholder': {color: thm.fc.plchldr.normal},
     }),
-    children: addkeys([
+    children: addkey([
       icn &&
         $(CmpIcn, {
           icn: icn,

@@ -1,5 +1,5 @@
 import {createElement as $, FC, ReactNode, useState} from 'react'
-import {addkeys} from '@/utils/addkeys'
+import {addkey} from '@/utils/addkey'
 import {random} from '@/utils/random'
 import {CmpTstr} from '../CmpTstr'
 import {CtxTstr, TypCtxTstr, TypTstr} from '@/ctxs/CtxTstr'
@@ -33,7 +33,7 @@ export const CmpPrvTstr: FC<{ele: ReactNode}> = ({ele}) => {
           newTstr(`Please provide a ${fieldName}.`, 'error'),
         ]),
     } as TypCtxTstr,
-    children: addkeys([
+    children: addkey([
       ele,
       $(CmpTstr, {
         tstrArr: tstrArr,

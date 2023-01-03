@@ -4,7 +4,7 @@ import {TypTstr} from '@/ctxs/CtxTstr'
 import {useThm} from '@/hooks/useThm'
 import {media} from '@/utils/media'
 import {CmpPadLab} from './CmpPad/CmpPadLab'
-import {addkeys} from '@/utils/addkeys'
+import {addkey} from '@/utils/addkey'
 import {FIB} from '@/consts/FIB'
 /**
  *
@@ -48,7 +48,7 @@ export const CmpTstr: FC<{
             borderRight: thm.brdr.tstr,
           },
         }),
-        children: addkeys([
+        children: addkey([
           $(CmpPadLab, {
             grw: true,
             lab: tstr.txt,

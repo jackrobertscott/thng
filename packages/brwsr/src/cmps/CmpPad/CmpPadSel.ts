@@ -1,5 +1,5 @@
 import {FIB} from '@/consts/FIB'
-import {addkeys} from '@/utils/addkeys'
+import {addkey} from '@/utils/addkey'
 import {createElement as $, FC, ReactNode} from 'react'
 import {CmpPop} from '../CmpPop'
 import {CmpPopWrp} from '../CmpPopWrp'
@@ -32,7 +32,7 @@ export const CmpPadSel: FC<{
         wid,
         ali: 'left',
         hgt: FIB[12],
-        ele: addkeys([
+        ele: addkey([
           hed,
           optArr.map((opt) => {
             return $(CmpPadLab, {

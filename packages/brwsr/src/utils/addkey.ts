@@ -2,7 +2,7 @@ import {createElement as $, ReactNode, Fragment} from 'react'
 /**
  *
  */
-export const addkeys = (
+export const addkey = (
   children: ReactNode[],
   options?: {reversed?: boolean}
 ): ReactNode[] => {
