@@ -1,8 +1,8 @@
 import {createElement as $, FC, ReactNode, useEffect, useRef} from 'react'
 import {watch} from '@/utils/watch'
 import {css} from '@emotion/css'
-import {useHep} from '@/hooks/useHep'
-import {CmpPrt} from './CmpPrt'
+import {useZidx} from '@/hooks/useZidx'
+import {CmpPort} from './CmpPort'
 /**
  *
  */
@@ -11,12 +11,12 @@ export const CmpAbsDiv: FC<{
   ele: ReactNode
   clkOut?: (unfocused: boolean) => void
 }> = ({box, ele, clkOut}) => {
-  const hep = useHep()
+  const zidx = useZidx()
   const ref = useRef<HTMLElement>()
   const unfRef = useRef(true)
   useEffect(() => {
-    hep.on()
-    return () => hep.off()
+    zidx.on()
+    return () => zidx.off()
   }, [])
   useEffect(() => {
     return watch.document({
@@ -26,14 +26,14 @@ export const CmpAbsDiv: FC<{
       },
       click: (event) =>
         clkOut &&
-        hep.top() &&
+        zidx.top() &&
         ref.current &&
         event.target instanceof HTMLElement &&
         !ref.current.contains(event.target) &&
         clkOut(unfRef.current),
     })
   }, [box])
-  return $(CmpPrt, {
+  return $(CmpPort, {
     ele: $('div', {
       ref,
       children: ele,

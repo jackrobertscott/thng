@@ -1,11 +1,11 @@
 import {useContext, useState} from 'react'
 import {random} from '@/utils/random'
-import {CtxHep} from '../contexts/CtxHep'
+import {CtxZidx} from '../ctxs/CtxZidx'
 /**
  *
  */
-export const useHep = () => {
-  const {ref, disabledRef} = useContext(CtxHep)
+export const useZidx = () => {
+  const {ref, disabledRef} = useContext(CtxZidx)
   const [id] = useState(() => random.string())
   return {
     top: () => {

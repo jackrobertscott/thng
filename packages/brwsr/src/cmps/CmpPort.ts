@@ -3,7 +3,7 @@ import {createPortal} from 'react-dom'
 /**
  *
  */
-export const CmpPrt: FC<{
+export const CmpPort: FC<{
   id?: string
   ele: ReactNode
 }> = ({id = 'port', ele}) => {

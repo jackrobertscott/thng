@@ -1,17 +1,17 @@
 import {createElement as $, FC} from 'react'
 import {css} from '@emotion/css'
-import {TypTst} from '@/ctxs/CtxTst'
+import {TypTstr} from '@/ctxs/CtxTstr'
 import {useThm} from '@/hooks/useThm'
 import {media} from '@/utils/media'
-import {CmpPadLbl} from './CmpPad/CmpPadLbl'
+import {CmpPadLab} from './CmpPad/CmpPadLab'
 import {addkeys} from '@/utils/addkeys'
 import {FIB} from '@/consts/FIB'
 /**
  *
  */
-export const CmpTst: FC<{
-  tstArr: TypTst[]
-}> = ({tstArr}) => {
+export const CmpTstr: FC<{
+  tstrArr: TypTstr[]
+}> = ({tstrArr}) => {
   const thm = useThm()
   return $('div', {
     className: css({
@@ -31,9 +31,9 @@ export const CmpTst: FC<{
         padding: FIB[4],
       },
     }),
-    children: tstArr.map((tst) => {
+    children: tstrArr.map((tstr) => {
       return $('div', {
-        key: tst.id,
+        key: tstr.id,
         className: css({
           maxWidth: '100%',
           overflow: 'hidden',
@@ -41,23 +41,23 @@ export const CmpTst: FC<{
           pointerEvents: 'all',
           flexDirection: 'row',
           width: FIB[13] - FIB[9],
-          border: thm.border.toaster,
-          color: thm.fc.toaster.normal,
-          background: thm.bg.toaster.normal,
+          border: thm.brdr.tstr,
+          color: thm.fc.tstr.normal,
+          background: thm.bg.tstr.normal,
           '& > *:not(:last-child)': {
-            borderRight: thm.border.toaster,
+            borderRight: thm.brdr.tstr,
           },
         }),
         children: addkeys([
-          $(CmpPadLbl, {
+          $(CmpPadLab, {
             grw: true,
-            lbl: tst.message,
-            icn: tst.type === 'error' ? 'notification_important' : undefined,
+            lab: tstr.txt,
+            icn: tstr.type === 'error' ? 'notification_important' : undefined,
           }),
-          $(CmpPadLbl, {
+          $(CmpPadLab, {
             icn: 'close',
-            clk: tst.remove,
-            bgd: thm.bg.toaster,
+            clk: tstr.exit,
+            bgd: thm.bg.tstr,
           }),
         ]),
       })

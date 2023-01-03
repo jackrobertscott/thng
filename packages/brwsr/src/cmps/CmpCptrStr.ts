@@ -3,7 +3,7 @@ import {createElement as $, FC} from 'react'
 /**
  *
  */
-export const CmpCptStr: FC<{
+export const CmpCptrStr: FC<{
   typ?: string
   dis?: boolean
   plcHdr?: string

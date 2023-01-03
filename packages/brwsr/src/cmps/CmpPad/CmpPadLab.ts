@@ -8,15 +8,15 @@ import {CmpIcn} from '../CmpIcn'
 /**
  *
  */
-export const CmpPadLbl: FC<{
+export const CmpPadLab: FC<{
   icn?: string
-  lbl?: string
+  lab?: string
   grw?: boolean
   clk?: () => void
   ali?: 'left' | 'center' | 'right'
   bgd?: TypeHSLA
   clr?: TypeHSLA
-}> = ({icn, lbl, grw, clk, ali, bgd, clr}) => {
+}> = ({icn, lab, grw, clk, ali, bgd, clr}) => {
   const thm = useThm()
   return $(clk ? 'button' : 'div', {
     onClick: clk,
@@ -28,21 +28,21 @@ export const CmpPadLbl: FC<{
       flexDirection: 'row',
       flexShrink: 0,
       flexGrow: grw ? 1 : undefined,
-      gap: thm.padding.box,
-      padding: indent(thm.padding.box),
-      color: clr ? clr.normal : thm.fc.major.normal,
-      background: bgd ? bgd.normal : thm.bg.major.normal,
-      '&:hover': clk ? {background: thm.bg.major.hover} : undefined,
-      '&:active': clk ? {background: thm.bg.major.active} : undefined,
+      gap: thm.pad.box,
+      padding: indent(thm.pad.box),
+      color: clr ? clr.normal : thm.fc.maj.normal,
+      background: bgd ? bgd.normal : thm.bg.maj.normal,
+      '&:hover': clk ? {background: thm.bg.maj.hover} : undefined,
+      '&:active': clk ? {background: thm.bg.maj.active} : undefined,
     }),
     children: addkeys([
       icn &&
         $(CmpIcn, {
           icn: icn,
         }),
-      lbl &&
+      lab &&
         $('span', {
-          children: lbl,
+          children: lab,
         }),
     ]),
   })

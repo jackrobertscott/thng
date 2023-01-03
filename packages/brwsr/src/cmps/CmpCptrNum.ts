@@ -1,11 +1,11 @@
 import {TypeFCProps} from '@/utils/props'
 import {createElement as $, FC, useState} from 'react'
-import {CmpCptStr} from './CmpCptStr'
+import {CmpCptrStr} from './CmpCptrStr'
 /**
  *
  */
-export const CmpCptNum: FC<
-  Omit<TypeFCProps<typeof CmpCptStr>, 'val' | 'valSet'> & {
+export const CmpCptrNum: FC<
+  Omit<TypeFCProps<typeof CmpCptrStr>, 'val' | 'valSet'> & {
     min?: number
     max?: number
     val?: number | null
@@ -35,7 +35,7 @@ export const CmpCptNum: FC<
       }
     }
   }
-  return $(CmpCptStr, {
+  return $(CmpCptrStr, {
     ...props,
     val: (typeof val === 'number' ? val : '') + (dot ? '.' : ''),
     keyDwn: (code) => {

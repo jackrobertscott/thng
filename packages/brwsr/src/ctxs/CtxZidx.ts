@@ -2,11 +2,11 @@ import {createContext, MutableRefObject} from 'react'
 /**
  *
  */
-export type TypCtxHep = {
+export type TypCtxZidx = {
   ref?: MutableRefObject<string[]>
   disabledRef?: MutableRefObject<boolean>
 }
 /**
  *
  */
-export const CtxHep = createContext<TypCtxHep>({})
+export const CtxZidx = createContext<TypCtxZidx>({})

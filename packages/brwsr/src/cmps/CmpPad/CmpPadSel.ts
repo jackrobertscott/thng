@@ -3,7 +3,7 @@ import {addkeys} from '@/utils/addkeys'
 import {createElement as $, FC, ReactNode} from 'react'
 import {CmpPop} from '../CmpPop'
 import {CmpPopWrp} from '../CmpPopWrp'
-import {CmpPadLbl} from './CmpPadLbl'
+import {CmpPadLab} from './CmpPadLab'
 /**
  *
  */
@@ -12,7 +12,7 @@ export const CmpPadSel: FC<{
   valSet: (value: string | null) => void
   optArr: {
     val: string
-    lbl: string
+    lab: string
     icn?: string
   }[]
   wid?: number
@@ -22,9 +22,9 @@ export const CmpPadSel: FC<{
   return $(CmpPop, {
     grw: true,
     eleWrp: (open) =>
-      $(CmpPadLbl, {
+      $(CmpPadLab, {
         icn: current?.icn,
-        lbl: current?.lbl || 'Select',
+        lab: current?.lab || 'Select',
         clk: open,
       }),
     elePop: (exit) =>
@@ -35,9 +35,9 @@ export const CmpPadSel: FC<{
         ele: addkeys([
           hed,
           optArr.map((opt) => {
-            return $(CmpPadLbl, {
+            return $(CmpPadLab, {
               key: opt.val,
-              lbl: opt.lbl,
+              lab: opt.lab,
               icn: opt.icn,
               clk: () => {
                 valSet(opt.val)

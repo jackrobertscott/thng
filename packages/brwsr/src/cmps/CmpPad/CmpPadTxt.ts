@@ -3,13 +3,13 @@ import {css} from '@emotion/css'
 import {indent} from '@/utils/indent'
 import {useThm} from '@/hooks/useThm'
 import {TypeFCProps} from '@/utils/props'
-import {CmpCptTxtAre} from '../CmpCptTxtAre'
+import {CmpCptrTxt} from '../CmpCptrTxt'
 import {TypeHSLA} from '@/utils/hsla'
 /**
  *
  */
-export const CmpPadTxtAre: FC<
-  TypeFCProps<typeof CmpCptTxtAre> & {
+export const CmpPadTxt: FC<
+  TypeFCProps<typeof CmpCptrTxt> & {
     clr?: TypeHSLA
     bgd?: TypeHSLA
     wid?: number
@@ -24,17 +24,17 @@ export const CmpPadTxtAre: FC<
     className: css({
       width: wid,
       flexDirection: 'row',
-      gap: thm.padding.box,
+      gap: thm.pad.box,
       flexGrow: hug ? undefined : 1,
-      padding: indent(thm.padding.box),
+      padding: indent(thm.pad.box),
       cursor: props.dis ? 'default' : undefined,
       userSelect: props.dis ? 'none' : undefined,
-      color: clr ? clr.normal : thm.fc.major.normal,
-      background: bgd ? bgd.normal : thm.bg.major.normal,
-      '&:focus-within': {color: clr?.normal ?? thm.fc.major.normal},
-      '*::placeholder': {color: thm.fc.placeholder.normal},
+      color: clr ? clr.normal : thm.fc.maj.normal,
+      background: bgd ? bgd.normal : thm.bg.maj.normal,
+      '&:focus-within': {color: clr?.normal ?? thm.fc.maj.normal},
+      '*::placeholder': {color: thm.fc.plchldr.normal},
     }),
-    children: $(CmpCptTxtAre, {
+    children: $(CmpCptrTxt, {
       ...props,
     }),
   })

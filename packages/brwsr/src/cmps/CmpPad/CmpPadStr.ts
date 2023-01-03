@@ -4,14 +4,14 @@ import {indent} from '@/utils/indent'
 import {addkeys} from '@/utils/addkeys'
 import {useThm} from '@/hooks/useThm'
 import {TypeFCProps} from '@/utils/props'
-import {CmpCptStr} from '../CmpCptStr'
+import {CmpCptrStr} from '../CmpCptrStr'
 import {TypeHSLA} from '@/utils/hsla'
 import {CmpIcn} from '../CmpIcn'
 /**
  *
  */
 export const CmpPadStr: FC<
-  TypeFCProps<typeof CmpCptStr> & {
+  TypeFCProps<typeof CmpCptrStr> & {
     icn?: string
     clr?: TypeHSLA
     bgd?: TypeHSLA
@@ -27,22 +27,22 @@ export const CmpPadStr: FC<
     className: css({
       width: wid,
       flexDirection: 'row',
-      gap: thm.padding.box,
+      gap: thm.pad.box,
       flexGrow: hug ? undefined : 1,
-      padding: indent(thm.padding.box),
+      padding: indent(thm.pad.box),
       cursor: props.dis ? 'default' : undefined,
       userSelect: props.dis ? 'none' : undefined,
-      color: clr ? clr.normal : thm.fc.major.normal,
-      background: bgd ? bgd.normal : thm.bg.major.normal,
-      '&:focus-within': {color: clr?.normal ?? thm.fc.major.normal},
-      '*::placeholder': {color: thm.fc.placeholder.normal},
+      color: clr ? clr.normal : thm.fc.maj.normal,
+      background: bgd ? bgd.normal : thm.bg.maj.normal,
+      '&:focus-within': {color: clr?.normal ?? thm.fc.maj.normal},
+      '*::placeholder': {color: thm.fc.plchldr.normal},
     }),
     children: addkeys([
       icn &&
         $(CmpIcn, {
           icn: icn,
         }),
-      $(CmpCptStr, {
+      $(CmpCptrStr, {
         ...props,
       }),
     ]),

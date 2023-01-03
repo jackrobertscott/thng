@@ -1,3 +1,4 @@
+import {FIB} from '@/consts/FIB'
 import {useThm} from '@/hooks/useThm'
 import {css} from '@emotion/css'
 import {createElement as $, FC, useEffect} from 'react'
@@ -20,7 +21,10 @@ export const CmpApp: FC<{}> = ({}) => {
       flexGrow: 1,
       width: '100%',
       overflow: 'auto',
-      background: thm.bg.root.normal,
+      background: thm.bg.app.normal,
+      color: thm.fc.maj.normal,
+      padding: FIB[10],
+      fontSize: FIB[8],
     }),
     children: 'Hello world',
   })

@@ -3,7 +3,7 @@ import {ChangeEvent, createElement as $, FC} from 'react'
 /**
  *
  */
-export const CmpCptTxtAre: FC<{
+export const CmpCptrTxt: FC<{
   rowCnt?: number
   dis?: boolean
   plcHdr?: string
