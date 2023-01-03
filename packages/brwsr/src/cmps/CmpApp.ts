@@ -1,11 +1,5 @@
 import {FIB} from '@/consts/FIB'
-import {GenApp} from '@/gens/GenApp'
-import {GenGit} from '@/gens/GenGit'
-import {GenHyp} from '@/gens/GenHyp'
-import {GenIdx} from '@/gens/GenIdx'
-import {GenPkg} from '@/gens/GenPkg'
-import {GenTsc} from '@/gens/GenTsc'
-import {GenVite} from '@/gens/GenVite'
+import {genAll} from '@/gens/genAll'
 import {useLcl} from '@/hooks/useLcl'
 import {useThm} from '@/hooks/useThm'
 import {addkeys} from '@/utils/addkeys'
@@ -38,7 +32,7 @@ export const CmpApp: FC<{}> = ({}) => {
           fontWeight: 'bold',
           whiteSpace: 'pre',
         }),
-        children: GenHyp(),
+        children: 'Hello world',
       }),
       $('div', {
         className: css({
@@ -55,19 +49,7 @@ export const CmpApp: FC<{}> = ({}) => {
           fldr &&
             $(CmpBtnSmp, {
               label: 'Save',
-              click: async () => {
-                if (!window.brdg)
-                  throw new Error('Failed to load the window bridge.')
-                const saveFile = window.brdg.saveFile
-                await saveFile(fldr + '/index.html', GenHyp())
-                await saveFile(fldr + '/package.json', GenPkg())
-                await saveFile(fldr + '/tsconfig.json', GenTsc())
-                await saveFile(fldr + '/.gitignore', GenGit())
-                await saveFile(fldr + '/vite.config.ts', GenVite())
-                await saveFile(fldr + '/src/index.ts', GenIdx())
-                await saveFile(fldr + '/src/cmps/CmpApp.ts', GenApp())
-                alert('code generated')
-              },
+              click: () => genAll(fldr),
             }),
         ]),
       }),
