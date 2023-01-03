@@ -1,5 +1,10 @@
 import {FIB} from '@/consts/FIB'
-import {GenIdxHyp} from '@/gens/GenIdxHyp'
+import {GenGit} from '@/gens/GenGit'
+import {GenHyp} from '@/gens/GenHyp'
+import {GenPkg} from '@/gens/GenPkg'
+import {GenTsc} from '@/gens/GenTsc'
+import {GenVite} from '@/gens/GenVite'
+import {useLcl} from '@/hooks/useLcl'
 import {useThm} from '@/hooks/useThm'
 import {addkeys} from '@/utils/addkeys'
 import {css} from '@emotion/css'
@@ -9,7 +14,7 @@ import {createElement as $, FC, useEffect, useState} from 'react'
  */
 export const CmpApp: FC<{}> = ({}) => {
   const thm = useThm()
-  const [fldr, fldrSet] = useState<string>()
+  const [fldr, fldrSet] = useLcl<string | undefined>('fldr')
   useEffect(() => {
     window.brdg?.ping().then((i) => console.log(i))
     window.brdg?.rload(() => window.location.reload())
@@ -31,7 +36,7 @@ export const CmpApp: FC<{}> = ({}) => {
           fontWeight: 'bold',
           whiteSpace: 'pre',
         }),
-        children: GenIdxHyp(),
+        children: GenHyp(),
       }),
       $('div', {
         className: css({
@@ -49,8 +54,15 @@ export const CmpApp: FC<{}> = ({}) => {
             $(CmpBtnSmp, {
               label: 'Save',
               click: async () => {
-                await window.brdg?.saveFile(fldr + '/index.html', GenIdxHyp())
-                alert('file saved')
+                if (!window.brdg)
+                  throw new Error('Failed to load the window bridge.')
+                const saveFile = window.brdg.saveFile
+                await saveFile(fldr + '/index.html', GenHyp())
+                await saveFile(fldr + '/package.json', GenPkg())
+                await saveFile(fldr + '/tsconfig.json', GenTsc())
+                await saveFile(fldr + '/.gitignore', GenGit())
+                await saveFile(fldr + '/vite.config.ts', GenVite())
+                alert('code generated')
               },
             }),
         ]),

@@ -15,7 +15,7 @@ import {DOM_VOID_TAGS} from '@/consts/DOM'
  *   </body>
  * </html>
  */
-export const GenIdxHyp = () => {
+export const GenHyp = () => {
   const root: HypNod = {
     tag: 'html',
     prpObj: {lang: 'en'},
@@ -44,7 +44,6 @@ export const GenIdxHyp = () => {
           {tag: 'div', prpObj: {id: 'root'}},
           {tag: 'div', prpObj: {id: 'port'}},
           {tag: 'div', chdArr: [{tag: 'div', chdArr: ['Hello']}]},
-          {tag: 'script', prpObj: {type: 'module', src: '/src/index.ts'}},
         ],
       },
     ],
@@ -78,8 +77,10 @@ const txtHypNod = (nod: HypNod | string, lvl = 0) => {
       str += chdStr
       str += '</' + nod.tag + '>'
     }
-  } else if (DOM_VOID_TAGS.includes(nod.tag)) str += ' />'
-  else str += '></' + nod.tag + '>'
+  } else if (DOM_VOID_TAGS.includes(nod.tag)) {
+    // only void tags are self-closing
+    str += ' />'
+  } else str += '></' + nod.tag + '>'
   return str
 }
 
