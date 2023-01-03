@@ -1,5 +1,5 @@
 import path from 'path'
-import fs from 'fs'
+import fs from 'fs-extra'
 import {app, BrowserWindow, dialog, ipcMain} from 'electron'
 import {throttle} from './utils/throttle'
 /**
@@ -29,7 +29,7 @@ app.whenReady().then(() => {
   })
   ipcMain.handle('saveFile', async (evt, filPath, txt) => {
     // seems a bit dodgy just saving a file to any location...
-    fs.writeFileSync(filPath, txt)
+    fs.outputFileSync(filPath, txt)
   })
   /**
    *

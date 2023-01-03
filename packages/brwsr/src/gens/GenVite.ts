@@ -21,9 +21,9 @@ export const GenVite = () => {
       },
     })
   `
+  return txt
     .split('\n')
     .map((i) => i.slice(4)) // remove spaces at start
     .filter((i) => i.length)
     .join('\n')
-  return txt
 }

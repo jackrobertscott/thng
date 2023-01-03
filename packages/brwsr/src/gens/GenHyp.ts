@@ -43,7 +43,7 @@ export const GenHyp = () => {
         chdArr: [
           {tag: 'div', prpObj: {id: 'root'}},
           {tag: 'div', prpObj: {id: 'port'}},
-          {tag: 'div', chdArr: [{tag: 'div', chdArr: ['Hello']}]},
+          {tag: 'script', prpObj: {type: 'module', src: '/src/index.ts'}},
         ],
       },
     ],

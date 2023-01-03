@@ -1,6 +1,8 @@
 import {FIB} from '@/consts/FIB'
+import {GenApp} from '@/gens/GenApp'
 import {GenGit} from '@/gens/GenGit'
 import {GenHyp} from '@/gens/GenHyp'
+import {GenIdx} from '@/gens/GenIdx'
 import {GenPkg} from '@/gens/GenPkg'
 import {GenTsc} from '@/gens/GenTsc'
 import {GenVite} from '@/gens/GenVite'
@@ -8,7 +10,7 @@ import {useLcl} from '@/hooks/useLcl'
 import {useThm} from '@/hooks/useThm'
 import {addkeys} from '@/utils/addkeys'
 import {css} from '@emotion/css'
-import {createElement as $, FC, useEffect, useState} from 'react'
+import {createElement as $, FC, useEffect} from 'react'
 /**
  *
  */
@@ -62,6 +64,8 @@ export const CmpApp: FC<{}> = ({}) => {
                 await saveFile(fldr + '/tsconfig.json', GenTsc())
                 await saveFile(fldr + '/.gitignore', GenGit())
                 await saveFile(fldr + '/vite.config.ts', GenVite())
+                await saveFile(fldr + '/src/index.ts', GenIdx())
+                await saveFile(fldr + '/src/cmps/CmpApp.ts', GenApp())
                 alert('code generated')
               },
             }),

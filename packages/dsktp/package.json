@@ -8,6 +8,8 @@
     "build": "rm -rf lib && tsc"
   },
   "dependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "fs-extra": "^11.1.0",
     "module-alias": "^2.2.2"
   },
   "devDependencies": {
