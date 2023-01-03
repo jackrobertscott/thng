@@ -2,8 +2,10 @@ interface Window {
   __REACT_DEVTOOLS_GLOBAL_HOOK__: {
     isDisabled?: boolean
   }
-  versions?: {
-    ping?: () => Promise<string>
-    lisRel?: (cb: () => void) => Promise<void>
+  brdg?: {
+    ping: () => Promise<string>
+    rload: (cb: () => void) => Promise<void>
+    pickFldr: () => Promise<string | undefined>
+    saveFile: (filPath: string, txt: string) => Promise<void>
   }
 }

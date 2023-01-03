@@ -1,3 +1,4 @@
+import {DOM_VOID_TAGS} from '@/consts/DOM'
 /**
  * <!DOCTYPE html>
  * <html lang="en">
@@ -42,7 +43,7 @@ export const GenIdxHyp = () => {
         chdArr: [
           {tag: 'div', prpObj: {id: 'root'}},
           {tag: 'div', prpObj: {id: 'port'}},
-          {tag: 'div', chdArr: [{tag: 'div'}]},
+          {tag: 'div', chdArr: [{tag: 'div', chdArr: ['Hello']}]},
           {tag: 'script', prpObj: {type: 'module', src: '/src/index.ts'}},
         ],
       },
@@ -77,7 +78,8 @@ const txtHypNod = (nod: HypNod | string, lvl = 0) => {
       str += chdStr
       str += '</' + nod.tag + '>'
     }
-  } else str += ' />'
+  } else if (DOM_VOID_TAGS.includes(nod.tag)) str += ' />'
+  else str += '></' + nod.tag + '>'
   return str
 }
 

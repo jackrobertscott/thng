@@ -9,10 +9,10 @@ export const throttle = {
    * executing... consecutive callback executions during the timeout period
    * will replace their prior...
    */
-  drip: (timeout: number, cb: (...args: any[]) => void) => {
+  drip: <T>(timeout: number, cb: (...args: T[]) => void) => {
     let last: number | undefined
     let next: undefined | (() => void)
-    return (...args: any[]) => {
+    return (...args: T[]) => {
       next = () => {
         cb(...args)
         last = Date.now()
@@ -31,11 +31,11 @@ export const throttle = {
    * fire a callback at least the "timeout" specified time since
    * the last time the callback was fired or set...
    */
-  sling: (timeout: number, cb: (...args: any[]) => void) => {
+  sling: <T>(timeout: number, cb: (...args: T[]) => void) => {
     let last: undefined | number
     let next: undefined | (() => void)
     let time: any
-    return (...args: any[]) => {
+    return (...args: T[]) => {
       last = Date.now()
       next = () => cb(...args)
       const delay = () => {
@@ -58,15 +58,15 @@ export const throttle = {
    * callback queue and will wait until the queue has executed all other
    * callbacks given the same maximum upper limit...
    */
-  dribble: <T>(
+  dribble: <T, X>(
     max: number,
     timeout: number,
-    cb: (...args: any[]) => Promise<T>
+    cb: (...args: T[]) => Promise<X>
   ) => {
     if (max < 1) throw new Error('Dribble max can not be less than 1')
     let waiting = false
     let queue: Array<() => void> = []
-    return (...args: any[]): Promise<T> => {
+    return (...args: T[]): Promise<X> => {
       const go = () => {
         if (waiting) return
         waiting = true
@@ -78,7 +78,7 @@ export const throttle = {
           if (queue.length) go()
         }, timeout)
       }
-      return new Promise<T>((resolve, reject) => {
+      return new Promise<X>((resolve, reject) => {
         queue.push(() => resolve(cb(...args)))
         try {
           go()
@@ -93,9 +93,9 @@ export const throttle = {
    * timeout time period... all attempts to execute the callback while the
    * status is unavailable will be ignored...
    */
-  halter: (timeout: number, cb: (...args: any[]) => void) => {
+  halter: <T>(timeout: number, cb: (...args: T[]) => void) => {
     let available = true
-    return (...args: any[]) => {
+    return (...args: T[]) => {
       if (available) {
         cb(...args)
         available = false
