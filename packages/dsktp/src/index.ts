@@ -1,6 +1,6 @@
-import {app, BrowserWindow, ipcMain} from 'electron'
 import path from 'path'
 import fs from 'fs'
+import {app, BrowserWindow, ipcMain} from 'electron'
 import {throttle} from './utils/throttle'
 /**
  *
@@ -37,7 +37,5 @@ app.whenReady().then(() => {
   })
   win.on('move', () => saveWinLoc())
   win.on('resize', () => saveWinLoc())
-  // setTimeout(() => {
-  //   win.webContents.send('fromMain', 'this will reload the window')
-  // }, 5000)
+  // win.webContents.send('fromMain', 'this will reload the window')
 })

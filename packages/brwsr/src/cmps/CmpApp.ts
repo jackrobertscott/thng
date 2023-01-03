@@ -1,4 +1,5 @@
 import {FIB} from '@/consts/FIB'
+import {GenIdxHyp} from '@/gens/GenIdxHyp'
 import {useThm} from '@/hooks/useThm'
 import {css} from '@emotion/css'
 import {createElement as $, FC, useEffect} from 'react'
@@ -24,8 +25,15 @@ export const CmpApp: FC<{}> = ({}) => {
       background: thm.bg.app.normal,
       color: thm.fc.maj.normal,
       padding: FIB[10],
-      fontSize: FIB[8],
     }),
-    children: 'Hello world',
+    children: $('div', {
+      className: css({
+        fontSize: 16,
+        fontFamily: 'monospace',
+        fontWeight: 'bold',
+        whiteSpace: 'pre',
+      }),
+      children: GenIdxHyp(),
+    }),
   })
 }
