@@ -5,8 +5,8 @@ import {createElement as $, FC, ReactNode} from 'react'
  *
  */
 export const CmpPrvGlb: FC<{
-  ele: ReactNode
-}> = ({ele}) => {
+  chdrn: ReactNode
+}> = ({chdrn}) => {
   const [prjArr, prjArrSet] = useLcl<TypPrj[]>('prjArr', [])
   const [prjCurId, prjCurIdSet] = useLcl<string | undefined>('prjCurId')
   const prjCur = prjArr.find((i) => i.id === prjCurId)
@@ -23,7 +23,7 @@ export const CmpPrvGlb: FC<{
     },
   }
   return $(CtxGlb.Provider, {
-    children: ele,
+    children: chdrn,
     value,
   })
 }

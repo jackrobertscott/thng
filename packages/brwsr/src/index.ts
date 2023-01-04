@@ -14,10 +14,10 @@ import {CmpPrvGlb} from './cmps/CmpPrv/CmpPrvGlb'
  *
  */
 const app = $(CmpPrvThm, {
-  ele: $(CmpPrvTstr, {
-    ele: $(CmpPrvZidx, {
-      ele: $(CmpPrvGlb, {
-        ele: $(CmpApp),
+  chdrn: $(CmpPrvTstr, {
+    chdrn: $(CmpPrvZidx, {
+      chdrn: $(CmpPrvGlb, {
+        chdrn: $(CmpApp),
       }),
     }),
   }),

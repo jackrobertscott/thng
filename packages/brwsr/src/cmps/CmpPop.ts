@@ -16,9 +16,9 @@ import {CmpAbsDiv} from './CmpAbsDiv'
 export const CmpPop: FC<{
   grw?: boolean
   ini?: boolean
-  eleWrp: (open: () => void) => ReactNode
-  elePop: (exit: () => void) => ReactNode
-}> = ({grw, ini, eleWrp, elePop}) => {
+  chdrnWrp: (open: () => void) => ReactNode
+  chdrnPop: (exit: () => void) => ReactNode
+}> = ({grw, ini, chdrnWrp, chdrnPop}) => {
   const ref = useRef<HTMLElement>()
   const [box, boxSet] = useState<DOMRect>()
   const [open, openSet] = useState(ini)
@@ -30,7 +30,7 @@ export const CmpPop: FC<{
     children: addkey([
       $('div', {
         ref,
-        children: eleWrp(() => openSet(true)),
+        children: chdrnWrp(() => openSet(true)),
         className: css({
           flexGrow: grw ? 1 : undefined,
         }),
@@ -41,7 +41,7 @@ export const CmpPop: FC<{
           open &&
           $(CmpAbsDiv, {
             box,
-            ele: elePop(() => openSet(false)),
+            chdrn: chdrnPop(() => openSet(false)),
             clkOut: (unfocused) => {
               if (unfocused) openSet(false)
             },

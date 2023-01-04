@@ -25,11 +25,11 @@ export const CmpPrj: FC<{}> = ({}) => {
     children: addkey([
       $(CmpGrdCol, {
         bdr: true,
-        children: addkey([
+        chdrn: addkey([
           glb.prjArr.map((prj) => {
             return $(CmpGrdRow, {
               key: prj.id,
-              children: addkey([
+              chdrn: addkey([
                 $(CmpPadLab, {
                   grw: true,
                   lab: prj.lab + ' : ' + prj.fldrPth,
@@ -59,7 +59,7 @@ export const CmpPrj: FC<{}> = ({}) => {
         $(CmpMod, {
           wid: FIB[11],
           ext: () => frmOpnSet(false),
-          ele: $(CmpPrjNew, {
+          chdrn: $(CmpPrjNew, {
             prj: prjUpd,
             prjSet: (i) => {
               glb.prjSet(i)

@@ -6,7 +6,7 @@ import {CtxTstr, TypCtxTstr, TypTstr} from '@/ctxs/CtxTstr'
 /**
  *
  */
-export const CmpPrvTstr: FC<{ele: ReactNode}> = ({ele}) => {
+export const CmpPrvTstr: FC<{chdrn: ReactNode}> = ({chdrn}) => {
   const [tstrArr, tstrArrSet] = useState<TypTstr[]>([])
   const delById = (id: string) =>
     tstrArrSet((i) => i.filter((x) => x.id !== id))
@@ -30,7 +30,7 @@ export const CmpPrvTstr: FC<{ele: ReactNode}> = ({ele}) => {
   return $(CtxTstr.Provider, {
     value,
     children: addkey([
-      ele,
+      chdrn,
       $(CmpTstr, {
         tstrArr: tstrArr,
       }),

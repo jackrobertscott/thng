@@ -8,9 +8,9 @@ import {CmpPort} from './CmpPort'
  */
 export const CmpAbsDiv: FC<{
   box: DOMRect
-  ele: ReactNode
+  chdrn: ReactNode
   clkOut?: (unfocused: boolean) => void
-}> = ({box, ele, clkOut}) => {
+}> = ({box, chdrn, clkOut}) => {
   const zidx = useZidx()
   const ref = useRef<HTMLElement>()
   const unfRef = useRef(true)
@@ -34,9 +34,9 @@ export const CmpAbsDiv: FC<{
     })
   }, [box])
   return $(CmpPort, {
-    ele: $('div', {
+    chdrn: $('div', {
       ref,
-      children: ele,
+      children: chdrn,
       className: css({
         top: box.top,
         left: box.left,

@@ -9,10 +9,10 @@ import {createElement as $, FC, ReactNode} from 'react'
 export const CmpPopWrp: FC<{
   wid?: number
   hgt?: number
-  ele: ReactNode
+  chdrn: ReactNode
   ali?: 'left' | 'right' | 'center'
   pos?: 'above' | 'below'
-}> = ({wid = FIB[11] + 1, hgt, ele, ali = 'center', pos = 'below'}) => {
+}> = ({wid = FIB[11] + 1, hgt, chdrn, ali = 'center', pos = 'below'}) => {
   const thm = useThm()
   return $('div', {
     className: css({
@@ -45,7 +45,7 @@ export const CmpPopWrp: FC<{
          * bordered content wrapper
          */
         $('div', {
-          children: ele,
+          children: chdrn,
           className: css({
             zIndex: 200,
             width: wid,

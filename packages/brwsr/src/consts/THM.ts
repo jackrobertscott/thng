@@ -22,7 +22,7 @@ export const THM = {
     tstr: '2px solid ' + hsla(0, 0, 0).normal,
   },
   pad: {
-    box: FIB[5],
+    box: FIB[3],
   },
   shdw: {
     clr: '0 0 0 0 transparent',

@@ -10,11 +10,11 @@ import {FIB} from '@/consts/FIB'
  *
  */
 export const CmpMod: FC<{
-  ele: ReactNode
+  chdrn: ReactNode
   ext?: () => void
   wid?: number
   minHgt?: number
-}> = ({ele, ext, wid, minHgt}) => {
+}> = ({chdrn, ext, wid, minHgt}) => {
   const ref = useRef()
   const zidx = useZidx()
   const thm = useThm()
@@ -36,7 +36,7 @@ export const CmpMod: FC<{
     })
   }, [])
   return $(CmpPort, {
-    ele: $('div', {
+    chdrn: $('div', {
       className: css({
         top: 0,
         right: 0,
@@ -80,7 +80,7 @@ export const CmpMod: FC<{
               '& > *': {pointerEvents: 'auto'},
             }),
             children: $('div', {
-              children: ele,
+              children: chdrn,
               className: css({
                 width: wid,
                 minHeight: minHgt,

@@ -21,18 +21,18 @@ export const CmpPadSel: FC<{
   const current = val ? optArr.find((i) => i.val === val) : undefined
   return $(CmpPop, {
     grw: true,
-    eleWrp: (open) =>
+    chdrnWrp: (open) =>
       $(CmpPadLab, {
         icn: current?.icn,
         lab: current?.lab || 'Select',
         clk: open,
       }),
-    elePop: (exit) =>
+    chdrnPop: (exit) =>
       $(CmpPopWrp, {
         wid,
         ali: 'left',
         hgt: FIB[12],
-        ele: addkey([
+        chdrn: addkey([
           hed,
           optArr.map((opt) => {
             return $(CmpPadLab, {

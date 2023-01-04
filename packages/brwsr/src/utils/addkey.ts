@@ -3,11 +3,11 @@ import {createElement as $, ReactNode, Fragment} from 'react'
  *
  */
 export const addkey = (
-  children: ReactNode[],
+  chdrn: ReactNode[],
   options?: {reversed?: boolean}
 ): ReactNode[] => {
-  if (options?.reversed) children = children.reverse()
-  return children.map((child, index) => {
+  if (options?.reversed) chdrn = chdrn.reverse()
+  return chdrn.map((child, index) => {
     return $(Fragment, {
       key: index.toString(),
       children: child,

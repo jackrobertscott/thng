@@ -4,12 +4,12 @@ import {createElement as $, FC, ReactNode, useRef} from 'react'
  *
  */
 export const CmpPrvZidx: FC<{
-  ele: ReactNode
-}> = ({ele}) => {
+  chdrn: ReactNode
+}> = ({chdrn}) => {
   const ref = useRef<string[]>([])
   const disabledRef = useRef<boolean>(false)
   return $(CtxZidx.Provider, {
-    children: ele,
+    children: chdrn,
     value: {
       ref,
       disabledRef,

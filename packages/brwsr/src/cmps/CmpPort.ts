@@ -5,8 +5,8 @@ import {createPortal} from 'react-dom'
  */
 export const CmpPort: FC<{
   id?: string
-  ele: ReactNode
-}> = ({id = 'port', ele}) => {
+  chdrn: ReactNode
+}> = ({id = 'port', chdrn}) => {
   const [dom, domSet] = useState(document.getElementById(id))
   useEffect(() => {
     if (!dom)
@@ -16,5 +16,5 @@ export const CmpPort: FC<{
         domSet(dom)
       })
   }, [dom, id])
-  return dom ? createPortal(ele, dom) : null
+  return dom ? createPortal(chdrn, dom) : null
 }

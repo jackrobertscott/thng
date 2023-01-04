@@ -7,11 +7,11 @@ import {createElement as $, FC, ReactNode} from 'react'
 export const CmpGrdCol: FC<{
   bdr?: boolean
   grw?: boolean
-  children: ReactNode
-}> = ({bdr, grw, children}) => {
+  chdrn: ReactNode
+}> = ({bdr, grw, chdrn}) => {
   const thm = useThm()
   return $('div', {
-    children,
+    children: chdrn,
     className: css({
       flexDirection: 'column',
       flexGrow: grw ? 1 : undefined,

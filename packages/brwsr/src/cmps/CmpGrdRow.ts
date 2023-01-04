@@ -5,11 +5,11 @@ import {createElement as $, FC, ReactNode} from 'react'
  *
  */
 export const CmpGrdRow: FC<{
-  children: ReactNode
-}> = ({children}) => {
+  chdrn: ReactNode
+}> = ({chdrn}) => {
   const thm = useThm()
   return $('div', {
-    children,
+    children: chdrn,
     className: css({
       flexDirection: 'row',
       '& > *:not(:last-child)': {borderRight: thm.bdr.thck},

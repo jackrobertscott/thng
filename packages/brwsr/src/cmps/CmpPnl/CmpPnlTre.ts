@@ -12,7 +12,7 @@ export const CmpPnlTre: FC<{}> = ({}) => {
   const [nod, nodSet] = useLcl<TypNod>('expNod')
   return $(CmpGrdCol, {
     bdr: true,
-    children: nod
+    chdrn: nod
       ? nod2Tre(nod)
       : $(CmpPadLab, {
           lab: 'Add Node',
@@ -28,18 +28,18 @@ const nod2Tre = (nod: TypNod): ReactNode => {
   const tagCur = tagArr.find((i) => i.id === nod.tagId)
   if (!tagCur) return null // no tag found
   return $(CmpGrdCol, {
-    children: addkey([
+    chdrn: addkey([
       $(CmpPadLab, {
         lab: tagCur.lab,
       }),
       $(CmpGrdRow, {
-        children: addkey([
+        chdrn: addkey([
           $(CmpPadLab, {icn: 'subdirectory_arrow_right'}),
           $(CmpGrdCol, {
             grw: true,
-            children: tagCur.prpArr.map((prp) => {
+            chdrn: tagCur.prpArr.map((prp) => {
               return $(CmpGrdRow, {
-                children: addkey([
+                chdrn: addkey([
                   $(CmpPadLab, {lab: prp.lab}),
                   $(CmpPadLab, {lab: prp.typ, grw: true}), // todo: replace with input
                 ]),

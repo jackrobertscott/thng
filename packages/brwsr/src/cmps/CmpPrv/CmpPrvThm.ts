@@ -5,11 +5,11 @@ import {createElement as $, FC, ReactNode} from 'react'
  *
  */
 export const CmpPrvThm: FC<{
-  ele: ReactNode
+  chdrn: ReactNode
   val?: typeof THM
-}> = ({ele, val: value}) => {
+}> = ({chdrn, val: value}) => {
   return $(CtxThm.Provider, {
-    children: ele,
+    children: chdrn,
     value: value ?? THM,
   })
 }
