@@ -11,8 +11,7 @@ import {random} from '@/utils/random'
 import {FIB} from '@/consts/FIB'
 import {useGlb} from '@/hooks/useGlb'
 import {TypPrj} from '@/ctxs/CtxGlb'
-import {CmpGrdRow} from './CmpGrdRow'
-import {CmpGrdCol} from './CmpGrdCol'
+import {CmpGrd} from './CmpGrd'
 /**
  *
  */
@@ -23,11 +22,11 @@ export const CmpPrj: FC<{}> = ({}) => {
   const prjUpd = glb.prjArr.find((i) => i.id === prjUpdId)
   return $(Fragment, {
     children: addkey([
-      $(CmpGrdCol, {
+      $(CmpGrd, {
         bdr: true,
         chdrn: addkey([
           glb.prjArr.map((prj) => {
-            return $(CmpGrdRow, {
+            return $(CmpGrd, {
               key: prj.id,
               chdrn: addkey([
                 $(CmpPadLab, {

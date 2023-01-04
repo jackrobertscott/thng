@@ -6,7 +6,7 @@ import {FIB} from './FIB'
 export const THM = {
   bg: {
     app: hsla(210, 20, 30),
-    maj: hsla(0, 0, 40),
+    maj: hsla(0, 0, 0, 0.2),
     tstr: hsla(0, 0, 100),
     brdr: hsla(0, 0, 0),
     shdw: hsla(0, 0, 0, 0.1),

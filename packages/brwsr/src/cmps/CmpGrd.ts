@@ -4,19 +4,23 @@ import {createElement as $, FC, ReactNode} from 'react'
 /**
  *
  */
-export const CmpGrdCol: FC<{
+export const CmpGrd: FC<{
   bdr?: boolean
   grw?: boolean
+  dir?: 'row' | 'column'
   chdrn: ReactNode
-}> = ({bdr, grw, chdrn}) => {
+}> = ({bdr, grw, dir = 'column', chdrn}) => {
   const thm = useThm()
   return $('div', {
     children: chdrn,
     className: css({
-      flexDirection: 'column',
+      flexDirection: dir,
       flexGrow: grw ? 1 : undefined,
       border: bdr ? thm.bdr.thck : undefined,
-      '& > *:not(:last-child)': {borderBottom: thm.bdr.thck},
+      '& > *:not(:last-child)':
+        dir === 'row'
+          ? {borderRight: thm.bdr.thck}
+          : {borderBottom: thm.bdr.thck},
     }),
   })
 }
