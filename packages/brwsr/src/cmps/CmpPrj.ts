@@ -17,7 +17,6 @@ import {CmpGrdCol} from './CmpGrdCol'
  *
  */
 export const CmpPrj: FC<{}> = ({}) => {
-  const thm = useThm()
   const glb = useGlb()
   const [frmOpn, frmOpnSet] = useState(false)
   const [prjUpdId, prjUpdIdSet] = useState<string>()
@@ -33,9 +32,13 @@ export const CmpPrj: FC<{}> = ({}) => {
               children: addkey([
                 $(CmpPadLab, {
                   grw: true,
-                  lab: prj.lab + ':' + prj.fldrPth,
+                  lab: prj.lab + ' : ' + prj.fldrPth,
                   clk: () => glb.prjCurIdSet(prj.id),
                 }),
+                prj.id === glb.prjCur?.id &&
+                  $(CmpPadLab, {
+                    icn: 'star',
+                  }),
                 $(CmpPadLab, {
                   icn: 'settings',
                   clk: () => {

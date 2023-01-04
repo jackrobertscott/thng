@@ -4,6 +4,7 @@ import {addkey} from '@/utils/addkey'
 import {css} from '@emotion/css'
 import {createElement as $, FC, useEffect} from 'react'
 import {CmpPrj} from './CmpPrj'
+import {CmpPnlTre} from './CmpPnl/CmpPnlTre'
 /**
  *
  */
@@ -19,9 +20,10 @@ export const CmpApp: FC<{}> = ({}) => {
       width: '100%',
       overflow: 'auto',
       padding: FIB[7],
+      gap: FIB[7],
       color: thm.fc.maj.normal,
       background: thm.bg.app.normal,
     }),
-    children: addkey([$(CmpPrj)]),
+    children: addkey([$(CmpPrj), $(CmpPnlTre)]),
   })
 }
