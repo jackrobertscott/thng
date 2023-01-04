@@ -9,6 +9,7 @@ export const THM = {
     maj: hsla(0, 0, 40),
     tstr: hsla(0, 0, 100),
     brdr: hsla(0, 0, 0),
+    shdw: hsla(0, 0, 0, 0.1),
   },
   fc: {
     maj: hsla(0, 0, 100),
@@ -16,8 +17,8 @@ export const THM = {
     tstr: hsla(0, 0, 0),
   },
   brdr: {
-    solid: '2px solid ' + hsla(0, 0, 0).normal,
-    dashed: '2px dashed ' + hsla(0, 0, 0).normal,
+    thck: '2px solid ' + hsla(0, 0, 0).normal,
+    dash: '2px dashed ' + hsla(0, 0, 0).normal,
     tstr: '2px solid ' + hsla(0, 0, 0).normal,
   },
   pad: {

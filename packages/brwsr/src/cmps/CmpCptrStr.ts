@@ -7,23 +7,23 @@ export const CmpCptrStr: FC<{
   typ?: string
   dis?: boolean
   plcHdr?: string
-  fcs?: boolean
+  autfoc?: boolean
   val?: string | null
   valSet?: (val: string | null) => void
-  onnFcs?: () => void
-  onnblr?: () => void
-  onnEnt?: () => void
+  foc?: () => void
+  blr?: () => void
+  ent?: () => void
   keyDwn?: (key: string) => void
 }> = ({
   typ = 'text',
   dis,
   plcHdr,
-  fcs,
+  autfoc,
   val,
   valSet,
-  onnFcs,
-  onnblr,
-  onnEnt,
+  foc,
+  blr,
+  ent,
   keyDwn,
 }) => {
   return $('input', {
@@ -31,14 +31,14 @@ export const CmpCptrStr: FC<{
     value: val || '',
     placeholder: plcHdr,
     disabled: dis,
-    autoFocus: fcs,
-    onBlur: dis ? undefined : () => onnblr?.(),
-    onFocus: dis ? undefined : () => onnFcs?.(),
+    autoFocus: autfoc,
+    onBlur: dis ? undefined : () => blr?.(),
+    onFocus: dis ? undefined : () => foc?.(),
     onChange: dis ? undefined : (evt) => valSet?.(evt.target.value || null),
     onKeyDown: dis
       ? undefined
       : (event) => {
-          if (event.key === 'Enter') onnEnt?.()
+          if (event.key === 'Enter') ent?.()
           keyDwn?.(event.key)
         },
     className: css({

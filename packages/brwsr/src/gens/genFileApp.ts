@@ -8,7 +8,7 @@ export const GenApp = () => {
     /**
      *
      */
-    export const CmpApp: FC<{}> = ({}) => {
+    export const GenApp: FC<{}> = ({}) => {
       return $('div', {
         children: 'Jack Scott',
         className: css({

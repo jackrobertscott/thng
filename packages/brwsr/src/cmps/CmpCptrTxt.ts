@@ -10,9 +10,9 @@ export const CmpCptrTxt: FC<{
   fcs?: boolean
   val?: string | null
   valSet?: (val: string | null) => void
-  onnFcs?: () => void
+  foc?: () => void
   onnBlr?: () => void
-}> = ({rowCnt, dis, plcHdr, fcs, val, valSet, onnFcs, onnBlr}) => {
+}> = ({rowCnt, dis, plcHdr, fcs, val, valSet, foc, onnBlr}) => {
   return $('textarea', {
     value: val,
     placeholder: plcHdr,
@@ -20,7 +20,7 @@ export const CmpCptrTxt: FC<{
     rows: rowCnt ?? 3,
     autoFocus: fcs,
     onBlur: () => !dis && onnBlr?.(),
-    onFocus: () => !dis && onnFcs?.(),
+    onFocus: () => !dis && foc?.(),
     onChange: (event: ChangeEvent<HTMLTextAreaElement>) =>
       !dis && valSet?.(event.target.value || null),
     className: css({

@@ -10,10 +10,10 @@ export const CmpPrvTstr: FC<{ele: ReactNode}> = ({ele}) => {
   const [tstrArr, tstrArrSet] = useState<TypTstr[]>([])
   const delById = (id: string) =>
     tstrArrSet((i) => i.filter((x) => x.id !== id))
-  const newTstr = (txt: string, type: TypTstr['type'], timeout?: number) => {
+  const newTstr = (txt: string, type: TypTstr['type'], time?: number) => {
     const id = random.string()
     const exit = () => delById(id)
-    setTimeout(() => exit(), timeout ?? type === 'error' ? 5000 : 3000)
+    setTimeout(() => exit(), time ?? type === 'error' ? 5000 : 3000)
     return {
       id,
       txt,
@@ -21,18 +21,14 @@ export const CmpPrvTstr: FC<{ele: ReactNode}> = ({ele}) => {
       exit,
     } as TypTstr
   }
+  const value: TypCtxTstr = {
+    tstrArr: tstrArr,
+    notif: (txt, time) =>
+      tstrArrSet((i) => [...i, newTstr(txt, 'normal', time)]),
+    err: (txt) => tstrArrSet((i) => [...i, newTstr(txt, 'error')]),
+  }
   return $(CtxTstr.Provider, {
-    value: {
-      tstrArr: tstrArr,
-      notif: (message, time) =>
-        tstrArrSet((i) => [...i, newTstr(message, 'normal', time)]),
-      error: (message) => tstrArrSet((i) => [...i, newTstr(message, 'error')]),
-      missing: (fieldName) =>
-        tstrArrSet((i) => [
-          ...i,
-          newTstr(`Please provide a ${fieldName}.`, 'error'),
-        ]),
-    } as TypCtxTstr,
+    value,
     children: addkey([
       ele,
       $(CmpTstr, {
