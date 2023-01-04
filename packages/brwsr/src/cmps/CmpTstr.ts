@@ -41,11 +41,11 @@ export const CmpTstr: FC<{
           pointerEvents: 'all',
           flexDirection: 'row',
           width: FIB[13] - FIB[9],
-          border: thm.brdr.tstr,
+          border: thm.bdr.tstr,
           color: thm.fc.tstr.normal,
           background: thm.bg.tstr.normal,
           '& > *:not(:last-child)': {
-            borderRight: thm.brdr.tstr,
+            borderRight: thm.bdr.tstr,
           },
         }),
         children: addkey([

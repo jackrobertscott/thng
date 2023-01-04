@@ -11,6 +11,8 @@ import {random} from '@/utils/random'
 import {FIB} from '@/consts/FIB'
 import {useGlb} from '@/hooks/useGlb'
 import {TypPrj} from '@/ctxs/CtxGlb'
+import {CmpGrdRow} from './CmpGrdRow'
+import {CmpGrdCol} from './CmpGrdCol'
 /**
  *
  */
@@ -22,17 +24,12 @@ export const CmpPrj: FC<{}> = ({}) => {
   const prjUpd = glb.prjArr.find((i) => i.id === prjUpdId)
   return $(Fragment, {
     children: addkey([
-      $('div', {
-        className: css({
-          border: thm.brdr.thck,
-        }),
+      $(CmpGrdCol, {
+        bdr: true,
         children: addkey([
           glb.prjArr.map((prj) => {
-            return $('div', {
+            return $(CmpGrdRow, {
               key: prj.id,
-              className: css({
-                flexDirection: 'row',
-              }),
               children: addkey([
                 $(CmpPadLab, {
                   grw: true,
@@ -89,7 +86,7 @@ export const CmpPrjNew: FC<{
   }, [prj])
   return $('div', {
     className: css({
-      '& > *:not(:last-child)': {borderBottom: thm.brdr.thck},
+      '& > *:not(:last-child)': {borderBottom: thm.bdr.thck},
     }),
     children: addkey([
       $(CmpPadStr, {

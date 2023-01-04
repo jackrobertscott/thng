@@ -16,7 +16,7 @@ export const THM = {
     plchldr: hsla(0, 0, 50),
     tstr: hsla(0, 0, 0),
   },
-  brdr: {
+  bdr: {
     thck: '2px solid ' + hsla(0, 0, 0).normal,
     dash: '2px dashed ' + hsla(0, 0, 0).normal,
     tstr: '2px solid ' + hsla(0, 0, 0).normal,
