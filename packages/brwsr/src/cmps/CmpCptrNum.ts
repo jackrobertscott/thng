@@ -1,11 +1,11 @@
-import {TypeFCProps} from '@/utils/props'
+import {TypFCProps} from '@/utils/props'
 import {createElement as $, FC, useState} from 'react'
 import {CmpCptrStr} from './CmpCptrStr'
 /**
  *
  */
 export const CmpCptrNum: FC<
-  Omit<TypeFCProps<typeof CmpCptrStr>, 'val' | 'valSet'> & {
+  Omit<TypFCProps<typeof CmpCptrStr>, 'val' | 'valSet'> & {
     min?: number
     max?: number
     val?: number | null

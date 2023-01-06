@@ -10,9 +10,10 @@ import {CmpPadNum} from '../CmpPad/CmpPadNum'
  *
  */
 export const CmpPnlTre: FC<{}> = ({}) => {
-  const [nod, nodSet] = useLcl<TypNod>('expNod')
+  const [nod, nodSet] = useLcl<TypNod | undefined>('expNod')
   return $(CmpGrd, {
     bdr: true,
+    grw: true,
     chdrn: nod
       ? $(CmpNod2Tre, {
           nod,
@@ -33,7 +34,7 @@ const CmpNod2Tre: FC<{
 }> = ({nod, nodSet}) => {
   const tagArr = [tagDiv]
   const tagCur = tagArr.find((i) => i.id === nod.tagId)
-  const [opn, opnSet] = useState(false)
+  const [opn, opnSet] = useState(true)
   if (!tagCur) return null // no tag found
   return $(CmpGrd, {
     chdrn: addkey([
@@ -89,6 +90,10 @@ const CmpNod2Tre: FC<{
                                   ...nod,
                                   prpObj: {...nod.prpObj, [prp.key]: i},
                                 }),
+                            })
+                          case 'clr':
+                            return $(CmpPadLab, {
+                              lab: '#000',
                             })
                           case 'chdrn':
                             const chldNew: TypNod = {
@@ -183,6 +188,9 @@ const tagDiv: TypTag = {
   prpArr: [
     {typ: 'str', key: 'id'},
     {typ: 'str', key: 'clsNam'},
+    {typ: 'num', key: 'hgt'},
+    {typ: 'num', key: 'wid'},
+    {typ: 'clr', key: 'bgc'},
     {typ: 'chdrn', key: 'chldArr'},
   ],
 }

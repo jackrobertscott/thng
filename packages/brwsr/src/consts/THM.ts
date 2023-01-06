@@ -5,7 +5,7 @@ import {FIB} from './FIB'
  */
 export const THM = {
   bg: {
-    app: hsla(210, 20, 30),
+    app: hsla(210, 0, 15),
     maj: hsla(0, 0, 0, 0.2),
     tstr: hsla(0, 0, 100),
     brdr: hsla(0, 0, 0),
@@ -17,6 +17,7 @@ export const THM = {
     tstr: hsla(0, 0, 0),
   },
   bdr: {
+    wid: 2,
     thck: '2px solid ' + hsla(0, 0, 0).normal,
     dash: '2px dashed ' + hsla(0, 0, 0).normal,
     tstr: '2px solid ' + hsla(0, 0, 0).normal,

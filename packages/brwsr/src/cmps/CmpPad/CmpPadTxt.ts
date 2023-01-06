@@ -2,16 +2,16 @@ import {createElement as $, FC} from 'react'
 import {css} from '@emotion/css'
 import {indent} from '@/utils/indent'
 import {useThm} from '@/hooks/useThm'
-import {TypeFCProps} from '@/utils/props'
+import {TypFCProps} from '@/utils/props'
 import {CmpCptrTxt} from '../CmpCptrTxt'
-import {TypeHSLA} from '@/utils/hsla'
+import {TypHSLA} from '@/utils/hsla'
 /**
  *
  */
 export const CmpPadTxt: FC<
-  TypeFCProps<typeof CmpCptrTxt> & {
-    clr?: TypeHSLA
-    bgd?: TypeHSLA
+  TypFCProps<typeof CmpCptrTxt> & {
+    clr?: TypHSLA
+    bgd?: TypHSLA
     wid?: number
     hug?: boolean
   }

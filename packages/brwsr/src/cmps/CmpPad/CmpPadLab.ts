@@ -1,6 +1,6 @@
 import {useThm} from '@/hooks/useThm'
 import {addkey} from '@/utils/addkey'
-import {TypeHSLA} from '@/utils/hsla'
+import {TypHSLA} from '@/utils/hsla'
 import {indent} from '@/utils/indent'
 import {css} from '@emotion/css'
 import {createElement as $, FC} from 'react'
@@ -14,8 +14,8 @@ export const CmpPadLab: FC<{
   grw?: boolean
   clk?: () => void
   ali?: 'left' | 'center' | 'right'
-  bgd?: TypeHSLA
-  clr?: TypeHSLA
+  bgd?: TypHSLA
+  clr?: TypHSLA
 }> = ({icn, lab, grw, clk, ali, bgd, clr}) => {
   const thm = useThm()
   return $(clk ? 'button' : 'div', {

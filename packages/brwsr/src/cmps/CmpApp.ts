@@ -5,6 +5,7 @@ import {css} from '@emotion/css'
 import {createElement as $, FC, useEffect} from 'react'
 import {CmpPrj} from './CmpPrj'
 import {CmpPnlTre} from './CmpPnl/CmpPnlTre'
+import {CmpPnlUi} from './CmpPnl/CmpPnlUi'
 /**
  *
  */
@@ -24,6 +25,17 @@ export const CmpApp: FC<{}> = ({}) => {
       color: thm.fc.maj.normal,
       background: thm.bg.app.normal,
     }),
-    children: addkey([$(CmpPrj), $(CmpPnlTre)]),
+    children: addkey([
+      $(CmpPrj),
+      $('div', {
+        className: css({
+          gap: FIB[7],
+          flexDirection: 'row',
+          alignItems: 'start',
+          flexGrow: 1,
+        }),
+        children: addkey([$(CmpPnlTre), $(CmpPnlUi)]),
+      }),
+    ]),
   })
 }

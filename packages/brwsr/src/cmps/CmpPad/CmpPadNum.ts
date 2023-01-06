@@ -3,18 +3,18 @@ import {css} from '@emotion/css'
 import {indent} from '@/utils/indent'
 import {addkey} from '@/utils/addkey'
 import {useThm} from '@/hooks/useThm'
-import {TypeFCProps} from '@/utils/props'
-import {TypeHSLA} from '@/utils/hsla'
+import {TypFCProps} from '@/utils/props'
+import {TypHSLA} from '@/utils/hsla'
 import {CmpIcn} from '../CmpIcn'
 import {CmpCptrNum} from '../CmpCptrNum'
 /**
  *
  */
 export const CmpPadNum: FC<
-  TypeFCProps<typeof CmpCptrNum> & {
+  TypFCProps<typeof CmpCptrNum> & {
     icn?: string
-    clr?: TypeHSLA
-    bgd?: TypeHSLA
+    clr?: TypHSLA
+    bgd?: TypHSLA
     wid?: number
     hug?: boolean
   }

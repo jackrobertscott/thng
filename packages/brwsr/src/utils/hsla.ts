@@ -60,4 +60,4 @@ export const hsla = (
 /**
  *
  */
-export type TypeHSLA = ReturnType<typeof hsla>
+export type TypHSLA = ReturnType<typeof hsla>
