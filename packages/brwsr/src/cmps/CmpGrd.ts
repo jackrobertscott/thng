@@ -14,6 +14,7 @@ export const CmpGrd: FC<{
   return $('div', {
     children: chdrn,
     className: css({
+      flexShrink: 0,
       flexDirection: dir,
       flexGrow: grw ? 1 : undefined,
       border: bdr ? thm.bdr.thck : undefined,

@@ -1,7 +1,7 @@
 /**
  *
  */
-export const GenVite = () => {
+export const genFileVite = () => {
   const txt = `
     import path from 'path'
     import {defineConfig} from 'vite'

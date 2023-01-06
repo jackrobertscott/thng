@@ -1,7 +1,7 @@
 /**
  *
  */
-export const GenGit = () => {
+export const genFileGit = () => {
   const fileArr = [
     '.DS_Store',
     '*.local',

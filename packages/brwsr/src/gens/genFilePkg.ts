@@ -1,7 +1,7 @@
 /**
  *
  */
-export const GenPkg = () => {
+export const genFilePkg = () => {
   const data = {
     name: 'hello',
     private: true,

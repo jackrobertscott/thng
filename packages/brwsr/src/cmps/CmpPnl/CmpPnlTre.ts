@@ -1,27 +1,38 @@
-import {createElement as $, FC, ReactNode, useState} from 'react'
+import {createElement as $, FC, useState} from 'react'
 import {CmpGrd} from '../CmpGrd'
 import {addkey} from '@/utils/addkey'
 import {CmpPadLab} from '../CmpPad/CmpPadLab'
 import {random} from '@/utils/random'
-import {useLcl} from '@/hooks/useLcl'
 import {CmpPadStr} from '../CmpPad/CmpPadStr'
 import {CmpPadNum} from '../CmpPad/CmpPadNum'
+import {useGlb} from '@/hooks/useGlb'
 /**
  *
  */
 export const CmpPnlTre: FC<{}> = ({}) => {
-  const [nod, nodSet] = useLcl<TypNod | undefined>('expNod')
+  // const [nod, nodSet] = useLcl<TypNod | undefined>('expNod')
+  const glb = useGlb()
+  if (!glb.prjCur) {
+    return $('div', {
+      children: 'Please select a project to get started.',
+    })
+  }
   return $(CmpGrd, {
     bdr: true,
     grw: true,
-    chdrn: nod
+    chdrn: glb.prjCur.nod
       ? $(CmpNod2Tre, {
-          nod,
-          nodSet,
+          nod: glb.prjCur.nod,
+          nodSet: (nod) => glb.prjCur && glb.prjSet({...glb.prjCur, nod}),
         })
       : $(CmpPadLab, {
           lab: 'Add Node',
-          clk: () => nodSet({id: random.string(), tagId: 'div', prpObj: {}}),
+          clk: () =>
+            glb.prjCur &&
+            glb.prjSet({
+              ...glb.prjCur,
+              nod: {id: random.string(), tagId: 'div', prpObj: {}},
+            }),
         }),
   })
 }
@@ -32,8 +43,7 @@ const CmpNod2Tre: FC<{
   nod: TypNod
   nodSet: (nod?: TypNod) => void
 }> = ({nod, nodSet}) => {
-  const tagArr = [tagDiv]
-  const tagCur = tagArr.find((i) => i.id === nod.tagId)
+  const tagCur = TAG_ARR.find((i) => i.id === nod.tagId)
   const [opn, opnSet] = useState(true)
   if (!tagCur) return null // no tag found
   return $(CmpGrd, {
@@ -174,6 +184,7 @@ export type TypNod = {
 type TypTag = {
   id: string
   lab: string
+  val: string
   prpArr: Array<{
     typ: string
     key: string
@@ -185,6 +196,7 @@ type TypTag = {
 const tagDiv: TypTag = {
   id: 'div',
   lab: 'Div',
+  val: 'asdf',
   prpArr: [
     {typ: 'str', key: 'id'},
     {typ: 'str', key: 'clsNam'},
@@ -194,3 +206,7 @@ const tagDiv: TypTag = {
     {typ: 'chdrn', key: 'chldArr'},
   ],
 }
+/**
+ *
+ */
+export const TAG_ARR: TypTag[] = [tagDiv]

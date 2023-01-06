@@ -6,11 +6,15 @@ import {createElement as $, FC, useEffect} from 'react'
 import {CmpPrj} from './CmpPrj'
 import {CmpPnlTre} from './CmpPnl/CmpPnlTre'
 import {CmpPnlUi} from './CmpPnl/CmpPnlUi'
+import {genAll} from '@/gens/genAll'
+import {useGlb} from '@/hooks/useGlb'
+import {CmpPadLab} from './CmpPad/CmpPadLab'
 /**
  *
  */
 export const CmpApp: FC<{}> = ({}) => {
   const thm = useThm()
+  const glb = useGlb()
   useEffect(() => {
     window.brdg?.ping().then((i) => console.log(i))
     window.brdg?.rload(() => window.location.reload())
@@ -26,7 +30,27 @@ export const CmpApp: FC<{}> = ({}) => {
       background: thm.bg.app.normal,
     }),
     children: addkey([
-      $(CmpPrj),
+      $('div', {
+        className: css({
+          gap: FIB[7],
+          flexDirection: 'row',
+          alignItems: 'start',
+        }),
+        children: addkey([
+          $(CmpPrj),
+          glb.prjCur?.fldrPth &&
+            $('div', {
+              className: css({
+                border: thm.bdr.thck,
+                flexGrow: 1,
+              }),
+              children: $(CmpPadLab, {
+                lab: 'Save Code',
+                clk: () => genAll(glb.prjCur!),
+              }),
+            }),
+        ]),
+      }),
       $('div', {
         className: css({
           gap: FIB[7],

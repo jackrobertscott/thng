@@ -1,7 +1,7 @@
 /**
  *
  */
-export const GenTsc = () => {
+export const genFileTsc = () => {
   const data = {
     compilerOptions: {
       noEmit: true,

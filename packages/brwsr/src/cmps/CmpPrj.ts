@@ -28,6 +28,7 @@ export const CmpPrj: FC<{}> = ({}) => {
           glb.prjArr.map((prj) => {
             return $(CmpGrd, {
               key: prj.id,
+              dir: 'row',
               chdrn: addkey([
                 $(CmpPadLab, {
                   grw: true,
@@ -107,6 +108,7 @@ export const CmpPrjNew: FC<{
         clk: () => {
           const prjTmp = {
             ...prj,
+            ...frm.data,
             lab: frm.data.lab.trim(),
           }
           if (!prjTmp.lab) return tstr.notif('Please provide a valid label.')

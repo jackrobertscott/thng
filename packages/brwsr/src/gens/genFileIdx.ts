@@ -1,7 +1,7 @@
 /**
  *
  */
-export const GenIdx = () => {
+export const genFileIdx = () => {
   const txt = `
     import 'material-icons/iconfont/outlined.css'
     import 'whatwg-fetch'

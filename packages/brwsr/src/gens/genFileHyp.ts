@@ -15,7 +15,7 @@ import {DOM_VOID_TAGS} from '@/consts/DOM'
  *   </body>
  * </html>
  */
-export const GenHyp = () => {
+export const genFileHyp = () => {
   const root: HypNod = {
     tag: 'html',
     prpObj: {lang: 'en'},
