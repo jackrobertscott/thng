@@ -196,7 +196,7 @@ type TypTag = {
 const tagDiv: TypTag = {
   id: 'div',
   lab: 'Div',
-  val: 'asdf',
+  val: 'div',
   prpArr: [
     {typ: 'str', key: 'id'},
     {typ: 'str', key: 'clsNam'},

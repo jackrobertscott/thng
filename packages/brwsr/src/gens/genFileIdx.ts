@@ -8,11 +8,11 @@ export const genFileIdx = () => {
     import 'promise-polyfill/src/polyfill'
     import {createRoot} from 'react-dom/client'
     import {createElement as $} from 'react'
-    import {CmpApp} from './cmps/CmpApp'
+    import {GenApp} from './cmps/GenApp'
     /**
      *
      */
-    const app = $(CmpApp)
+    const app = $(GenApp)
     /**
      *
      */

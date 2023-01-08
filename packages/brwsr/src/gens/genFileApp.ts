@@ -28,6 +28,6 @@ const genCdeFrmNod = (nod?: TypNod) => {
   let tag = TAG_ARR.find((i) => nod.tagId === i.id)
   if (!tag) return 'null'
   let txt = ''
-  txt += `$('${tag.val}')`
+  txt += `$('${tag.val}', {children: 'hello Jack'})`
   return txt
 }

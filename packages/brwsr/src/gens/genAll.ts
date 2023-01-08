@@ -18,6 +18,6 @@ export const genAll = async (prj: TypPrj) => {
   await saveFile(prj.fldrPth + '/.gitignore', genFileGit())
   await saveFile(prj.fldrPth + '/vite.config.ts', genFileVite())
   await saveFile(prj.fldrPth + '/src/index.ts', genFileIdx())
-  await saveFile(prj.fldrPth + '/src/cmps/CmpApp.ts', genFileApp(prj))
+  await saveFile(prj.fldrPth + '/src/cmps/GenApp.ts', genFileApp(prj))
   alert('Code saved at: ' + prj.fldrPth)
 }
