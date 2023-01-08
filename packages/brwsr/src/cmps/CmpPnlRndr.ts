@@ -2,11 +2,11 @@ import {useGlb} from '@/hooks/useGlb'
 import {useThm} from '@/hooks/useThm'
 import {css} from '@emotion/css'
 import {createElement as $, FC, Fragment} from 'react'
-import {TAG_ARR, TypNod} from './CmpPnlTre'
+import {TAG_ARR, TypOldNod} from './CmpPnlTre'
 /**
  *
  */
-export const CmpPnlUi: FC<{}> = ({}) => {
+export const CmpPnlRndr: FC<{}> = ({}) => {
   const thm = useThm()
   const glb = useGlb()
   return $('div', {
@@ -25,7 +25,7 @@ export const CmpPnlUi: FC<{}> = ({}) => {
 /**
  *
  */
-const RndrNod: FC<{nod: TypNod}> = ({nod}) => {
+const RndrNod: FC<{nod: TypOldNod}> = ({nod}) => {
   const tag = TAG_ARR.find((i) => i.id === nod.tagId)
   if (!tag) return null
   return $(tag.val, {

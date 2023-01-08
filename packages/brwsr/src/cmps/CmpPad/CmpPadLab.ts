@@ -23,6 +23,7 @@ export const CmpPadLab: FC<{
     className: css({
       textAlign: ali,
       overflow: 'hidden',
+      userSelect: 'none',
       justifyContent:
         ali === 'right' ? 'end' : ali === 'center' ? 'center' : 'start',
       flexDirection: 'row',

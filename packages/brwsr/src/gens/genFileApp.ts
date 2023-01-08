@@ -1,4 +1,4 @@
-import {TAG_ARR, TypNod} from '@/cmps/CmpPnl/CmpPnlTre'
+import {TAG_ARR, TypOldNod} from '@/cmps/CmpPnlTre'
 import {TypPrj} from '@/ctxs/CtxGlb'
 /**
  *
@@ -23,7 +23,7 @@ export const genFileApp = (prj: TypPrj) => {
 /**
  *
  */
-const genCdeFrmNod = (nod?: TypNod) => {
+const genCdeFrmNod = (nod?: TypOldNod) => {
   if (!nod) return 'null'
   let tag = TAG_ARR.find((i) => nod.tagId === i.id)
   if (!tag) return 'null'

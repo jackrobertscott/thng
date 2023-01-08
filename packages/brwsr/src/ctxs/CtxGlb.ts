@@ -1,4 +1,4 @@
-import {TypNod} from '@/cmps/CmpPnl/CmpPnlTre'
+import {TypOldNod} from '@/cmps/CmpPnlTre'
 import {contextNoop} from '@/utils/context'
 import {createContext} from 'react'
 /**
@@ -8,7 +8,7 @@ export type TypPrj = {
   id: string
   lab?: string
   fldrPth?: string
-  nod?: TypNod
+  nod?: TypOldNod
 }
 /**
  *

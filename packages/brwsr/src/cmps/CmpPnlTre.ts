@@ -1,16 +1,16 @@
 import {createElement as $, FC, useState} from 'react'
-import {CmpGrd} from '../CmpGrd'
+import {CmpGrd} from './CmpGrd'
 import {addkey} from '@/utils/addkey'
-import {CmpPadLab} from '../CmpPad/CmpPadLab'
+import {CmpPadLab} from './CmpPad/CmpPadLab'
+import {CmpPadStr} from './CmpPad/CmpPadStr'
+import {CmpPadNum} from './CmpPad/CmpPadNum'
 import {random} from '@/utils/random'
-import {CmpPadStr} from '../CmpPad/CmpPadStr'
-import {CmpPadNum} from '../CmpPad/CmpPadNum'
 import {useGlb} from '@/hooks/useGlb'
 /**
  *
  */
 export const CmpPnlTre: FC<{}> = ({}) => {
-  // const [nod, nodSet] = useLcl<TypNod | undefined>('expNod')
+  // const [nod, nodSet] = useLcl<TypOldNod | undefined>('expNod')
   const glb = useGlb()
   if (!glb.prjCur) {
     return $('div', {
@@ -40,8 +40,8 @@ export const CmpPnlTre: FC<{}> = ({}) => {
  *
  */
 const CmpNod2Tre: FC<{
-  nod: TypNod
-  nodSet: (nod?: TypNod) => void
+  nod: TypOldNod
+  nodSet: (nod?: TypOldNod) => void
 }> = ({nod, nodSet}) => {
   const tagCur = TAG_ARR.find((i) => i.id === nod.tagId)
   const [opn, opnSet] = useState(true)
@@ -106,13 +106,13 @@ const CmpNod2Tre: FC<{
                               lab: '#000',
                             })
                           case 'chdrn':
-                            const chldNew: TypNod = {
+                            const chldNew: TypOldNod = {
                               id: random.string(),
                               tagId: 'div',
                               prpObj: {},
                             }
                             const chldArr = Array.isArray(nod.prpObj[prp.key])
-                              ? (nod.prpObj[prp.key] as TypNod[])
+                              ? (nod.prpObj[prp.key] as TypOldNod[])
                               : []
                             return $(CmpGrd, {
                               grw: true,
@@ -120,7 +120,7 @@ const CmpNod2Tre: FC<{
                                 // list all children
                                 ...chldArr.map((nodChld, index) => {
                                   return $(CmpNod2Tre, {
-                                    nod: nodChld as TypNod,
+                                    nod: nodChld as TypOldNod,
                                     nodSet: (i) => {
                                       const a = [...chldArr]
                                       if (i) a.splice(index, 1, i)
@@ -173,7 +173,7 @@ const CmpNod2Tre: FC<{
 /**
  *
  */
-export type TypNod = {
+export type TypOldNod = {
   id: string
   tagId: string
   prpObj: Record<string, any>
