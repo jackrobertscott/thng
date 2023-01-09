@@ -3,14 +3,17 @@ import {css} from '@emotion/css'
 import {createElement as $, FC, useState} from 'react'
 import {CmpPadLab} from './CmpPad/CmpPadLab'
 import {addkey} from '@/utils/addkey'
+import {random} from '@/utils/random'
+import {useLcl} from '@/hooks/useLcl'
+import {CmpPrtyNod} from './CmpPrtyNod'
 /**
  *
  */
 export const CmpNodBrd: FC<{}> = ({}) => {
   const [shwNodSel, shwNodSelSet] = useState<{x: number; y: number}>()
-  const [brdPinArr, brdPinArrSet] = useState<
-    {x: number; y: number; nod: TypNod}[]
-  >([])
+  const [pinArr, pinArrSet] = useLcl<
+    {id: string; x: number; y: number; nod: TypNod}[]
+  >('pinArr', [])
   return $('div', {
     onClick: () => {
       if (shwNodSel) shwNodSelSet(undefined)
@@ -44,10 +47,11 @@ export const CmpNodBrd: FC<{}> = ({}) => {
                 lab: i.lab,
                 clk: () => {
                   // gen node and add to board
-                  brdPinArrSet([
-                    ...brdPinArr,
+                  pinArrSet([
+                    ...pinArr,
                     {
                       ...shwNodSel,
+                      id: random.string(),
                       nod: {key: i.key},
                     },
                   ])
@@ -56,17 +60,14 @@ export const CmpNodBrd: FC<{}> = ({}) => {
             }),
           }),
         }),
-      brdPinArr.map((pin) => {
-        return $('div', {
-          className: css({
-            border: '2px solid yellow',
-            position: 'absolute',
-            top: pin.y,
-            left: pin.x,
-          }),
-          children: $(CmpPadLab, {
-            lab: pin.nod.key,
-          }),
+      pinArr.map((pin) => {
+        const nodDef = NOD_ARR.find((i) => i.key === pin.nod.key)
+        if (!nodDef) return null
+        return $(CmpPrtyNod, {
+          key: pin.id,
+          x: pin.x,
+          y: pin.y,
+          lab: nodDef.lab,
         })
       }),
     ]),

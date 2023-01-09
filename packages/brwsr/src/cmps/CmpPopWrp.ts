@@ -62,7 +62,7 @@ export const CmpPopWrp: FC<{
           }),
         }),
       ],
-      {reversed: pos === 'above'}
+      {rev: pos === 'above'}
     ),
   })
 }
